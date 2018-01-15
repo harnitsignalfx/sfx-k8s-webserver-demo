@@ -13,7 +13,7 @@ Contains 3 yaml files -
 Deployment process:
 1) Clone this repo
 2) Add SFx token to webserver.yaml
-3) Deploy the webserver and lb - `kubectl create -f webserver.yaml -f lb.yaml` 
-4) Run `kubectl get svc` and get the External IP of the Load Balancer
+3) Deploy the webserver and lb - ```kubectl create -f webserver.yaml -f lb.yaml``` 
+4) Run ```kubectl get svc``` and get the External IP of the Load Balancer
 5) Add the IP as the TARGET_ADDRESS to webrequests.yaml
-6) Deploy the webrequests - `kubectl create -f webrequests.yaml`
+6) Deploy the webrequests - ```kubectl create -f webrequests.yaml```
