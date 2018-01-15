@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: send-rqst
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: send-requests
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 1
+  template:
+    metadata:
+      labels:
+        service: send-requests
+    spec:
+      containers:
+      - name: send-rqst
+        image: harnit/mock-requests-generator:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+        env:
+          - name: TARGET_ADDRESS
+            value: "Internal load balancer ip:80"
