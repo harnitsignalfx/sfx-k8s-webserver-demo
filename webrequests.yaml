@@ -27,3 +27,5 @@ spec:
         env:
           - name: TARGET_ADDRESS
             value: "Internal load balancer ip:80"
+          - name: SF_TOKEN
+            value: "<SET TOKEN>"
